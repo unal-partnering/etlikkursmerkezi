@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etlik Eğitim Merkezi | Geleceğe Doğru</title>
+    <meta name="description" content="İlkokuldan LGS'ye kadar, uzman kadromuzla çocuklarınızın akademik ve bireysel gelişiminde yanındayız. Etlik Eğitimle Geleceğe Doğru.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Swiper CSS (Karusel İçin) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1d1a49', // Logodaki Koyu Lacivert
+                        secondary: '#00a0e3', // Logodaki Açık Mavi
+                        lightbg: '#F3F4F6'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Özel Stiller ve Animasyon Düzenlemeleri */
+        body { font-family: 'Montserrat', sans-serif; }
+        .hero-overlay {
+            background: linear-gradient(rgba(29, 26, 73, 0.85), rgba(29, 26, 73, 0.95));
+        }
+        .swiper-pagination-bullet-active {
+            background-color: #00a0e3 !important;
+        }
+        /* Sticky WhatsApp Butonu için nabız animasyonu */
+        @keyframes pulse-green {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-btn {
+            animation: pulse-green 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white shadow-md" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <img src="logo.jpg" alt="Etlik Eğitim Merkezi Logo" class="w-14 h-14 object-cover shadow-sm rounded-md">
+                    <div class="flex flex-col hidden sm:flex">
+                        <span class="font-bold text-xl text-black leading-tight">ETLİK EĞİTİM MERKEZİ</span>
+                        <span class="text-xs text-gray-500 font-medium tracking-widest">KURS VE ETÜT MERKEZİ</span>
+                    </div>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#hizmetler" class="text-gray-600 hover:text-secondary font-medium transition">Eğitimlerimiz</a>
+                    <a href="#farkimiz" class="text-gray-600 hover:text-secondary font-medium transition">Neden Biz?</a>
+                    <a href="#yorumlar" class="text-gray-600 hover:text-secondary font-medium transition">Başarılarımız</a>
+                    <a href="#iletisim" class="bg-secondary text-white px-6 py-2.5 rounded-full font-bold shadow-lg hover:opacity-90 hover:shadow-xl transition transform hover:-translate-y-0.5">
+                        Ön Kayıt
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-primary focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 pt-2 pb-6 space-y-2 shadow-inner">
+                <a href="#hizmetler" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50 rounded-md">Eğitimlerimiz</a>
+                <a href="#farkimiz" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50 rounded-md">Neden Biz?</a>
+                <a href="#yorumlar" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50 rounded-md">Başarılarımız</a>
+                <a href="#iletisim" class="block mt-4 text-center bg-secondary text-white px-3 py-3 rounded-md font-bold shadow-md">Hemen Ön Kayıt Bilgisi Al</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-20 pb-32 lg:pt-32 lg:pb-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80');">
+        <div class="absolute inset-0 hero-overlay"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center mt-12">
+            <div class="text-center md:text-left max-w-3xl" data-aos="fade-up" data-aos-duration="1000">
+                <!-- Google Badge -->
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full mb-6">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" class="w-5 h-5">
+                    <div class="flex text-yellow-400 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="text-white text-sm font-medium">4.9/5 Müşteri Memnuniyeti</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+                    Etlik'in En Güvenilir <br/> <span class="text-secondary">Kurs ve Etüt Merkezi</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-200 mb-8 font-light">
+                    İlkokuldan LGS'ye kadar, uzman kadromuzla çocuklarınızın akademik ve bireysel gelişiminde yanındayız. <br class="hidden md:block"/>
+                    <strong class="text-white font-semibold mt-2 inline-block">"Etlik Eğitimle Geleceğe Doğru 🏹"</strong>
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#iletisim" class="bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:opacity-90 hover:shadow-2xl transition transform hover:-translate-y-1 text-center">
+                        Hemen Ön Kayıt Bilgisi Al
+                    </a>
+                    <a href="tel:05539196024" class="bg-white/10 text-white border border-white/30 px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition text-center flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-phone"></i> 0553 919 60 24
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Curve Divider -->
+        <div class="absolute bottom-0 w-full overflow-hidden leading-[0]">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-12 lg:h-20" style="fill: #F9FAFB;">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Eğitim Programlarımız -->
+    <section id="hizmetler" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Eğitim Programlarımız</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto text-lg">Öğrencilerimizin her kademedeki ihtiyaçlarına özel olarak tasarlanmış eğitim modellerimiz.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border-b-4 border-transparent hover:border-secondary" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-blue-50 text-primary rounded-xl flex items-center justify-center text-3xl mb-6">
+                        <i class="fa-solid fa-child-reaching"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">İlkokul Etüt <br><span class="text-sm text-gray-500 font-medium">(1-2-3-4. Sınıflar)</span></h3>
+                    <p class="text-gray-600 mb-4">Okul derslerine tam destek, düzenli ödev takibi ve sosyal gelişim aktiviteleri.</p>
+                    <div class="bg-sky-50 text-secondary text-sm font-semibold px-3 py-2 rounded-md flex items-center gap-2">
+                        <i class="fa-solid fa-utensils"></i> Yemek + Servis Hizmeti
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border-b-4 border-transparent hover:border-secondary" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-blue-50 text-primary rounded-xl flex items-center justify-center text-3xl mb-6">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Ortaokul Ara Sınıflar <br><span class="text-sm text-gray-500 font-medium">(5-6-7. Sınıflar)</span></h3>
+                    <p class="text-gray-600">Temel branşlarda eksiksiz eğitim ve yeni nesil soru kalıplarına erken adaptasyon.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border-b-4 border-transparent hover:border-secondary" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-blue-50 text-primary rounded-xl flex items-center justify-center text-3xl mb-6">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">LGS Grubu <br><span class="text-sm text-gray-500 font-medium">(8. Sınıf)</span></h3>
+                    <p class="text-gray-600">Yoğunlaştırılmış sınav hazırlığı, Türkiye geneli denemeler ve birebir stratejik rehberlik.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border-b-4 border-transparent hover:border-secondary" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-blue-50 text-primary rounded-xl flex items-center justify-center text-3xl mb-6">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Özel Dersler <br><span class="text-sm text-gray-500 font-medium">(Tüm Dersler)</span></h3>
+                    <p class="text-gray-600">Öğrencinin anlama hızına ve seviyesine tam uygun, birebir uzman öğretmen desteği.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Neden Biz? -->
+    <section id="farkimiz" class="py-20 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Image -->
+                <div class="w-full lg:w-1/2 relative" data-aos="fade-right">
+                    <div class="absolute inset-0 bg-secondary rounded-3xl transform translate-x-4 translate-y-4 -z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80" alt="Eğitim Ortamı" class="rounded-3xl shadow-xl w-full h-auto object-cover">
+                    <!-- Floating badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-2xl items-center gap-4 hidden sm:flex">
+                        <div class="w-14 h-14 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-2xl font-bold">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500 font-medium">Başarı Oranı</p>
+                            <p class="text-xl font-bold text-primary">Sürekli Yükseliş</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Neden Etlik Kurs Merkezi?</h2>
+                    <p class="text-gray-600 mb-8 text-lg">Velilerimizin yorumlarından yola çıkarak bizi farklı kılan temel değerlerimiz.</p>
+                    
+                    <div class="space-y-6">
+                        <!-- Feature 1 -->
+                        <div class="flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-full bg-sky-100 text-secondary flex items-center justify-center flex-shrink-0 text-xl mt-1">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-800 mb-1">Uzman ve İlgili Kadro</h4>
+                                <p class="text-gray-600">Zeki Hoca, Baturalp Hoca ve tüm deneyimli kadromuzla her öğrencimizle birebir, samimi bir ilgiyle yaklaşıyoruz.</p>
+                            </div>
+                        </div>
+                        <!-- Feature 2 -->
+                        <div class="flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-full bg-sky-100 text-secondary flex items-center justify-center flex-shrink-0 text-xl mt-1">
+                                <i class="fa-solid fa-scale-balanced"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-800 mb-1">Güvenilir ve Disiplinli Ortam</h4>
+                                <p class="text-gray-600">Çocuklarınızın sadece akademik notlarını değil, aynı zamanda davranışsal gelişimlerini de yakından takip ediyoruz.</p>
+                            </div>
+                        </div>
+                        <!-- Feature 3 -->
+                        <div class="flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-full bg-sky-100 text-secondary flex items-center justify-center flex-shrink-0 text-xl mt-1">
+                                <i class="fa-solid fa-sparkles"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-800 mb-1">Üstün Hijyen Standartları</h4>
+                                <p class="text-gray-600">Piyasaya göre tartışılmaz temizlikte, çocuklarınızın sağlığını ön planda tutan ferah sınıflar.</p>
+                            </div>
+                        </div>
+                        <!-- Feature 4 -->
+                        <div class="flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-full bg-sky-100 text-secondary flex items-center justify-center flex-shrink-0 text-xl mt-1">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-800 mb-1">Sürekli Veli İletişimi</h4>
+                                <p class="text-gray-600">Öğrencinin durumu, gelişimi ve eksikleri hakkında velilerimize düzenli ve şeffaf bilgilendirmeler yapıyoruz.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Yorumlar / Sosyal Kanıt -->
+    <section id="yorumlar" class="py-20 bg-primary text-white relative">
+        <!-- Arka Plan deseni -->
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 2px, transparent 2px); background-size: 30px 30px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Başarılarımız ve Velilerimiz Ne Diyor?</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
+                <p class="mt-4 text-blue-200 max-w-2xl mx-auto text-lg">Google Haritalar'da 4.9/5 puan. Gerçek velilerimizin kaleminden kurumumuz.</p>
+            </div>
+
+            <!-- Swiper Slider -->
+            <div class="swiper mySwiper" data-aos="zoom-in" data-aos-delay="200">
+                <div class="swiper-wrapper pb-12">
+                    
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white text-gray-800 p-8 rounded-2xl shadow-xl flex flex-col h-full relative mt-6">
+                            <div class="absolute -top-6 left-8 bg-secondary text-white w-12 h-12 flex items-center justify-center rounded-full text-2xl shadow-lg">
+                                <i class="fa-solid fa-quote-left"></i>
+                            </div>
+                            <div class="flex text-yellow-400 text-sm mb-4 mt-2">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 flex-grow italic mb-6 font-medium">"İl dışından Ankara'ya tayin oldum, araştırmalar sonucunda söylenenin çok üstünde başarıya sahip bir kurum olduğunu gördüm ve çocuğumun kaydını yaptım, çok memnunuz..."</p>
+                            <div class="flex items-center gap-3 border-t pt-4">
+                                <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold">SA</div>
+                                <div>
+                                    <p class="font-bold text-primary">Senar Alkan</p>
+                                    <p class="text-xs text-gray-500">Google Yorumu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white text-gray-800 p-8 rounded-2xl shadow-xl flex flex-col h-full relative mt-6">
+                            <div class="absolute -top-6 left-8 bg-secondary text-white w-12 h-12 flex items-center justify-center rounded-full text-2xl shadow-lg">
+                                <i class="fa-solid fa-quote-left"></i>
+                            </div>
+                            <div class="flex text-yellow-400 text-sm mb-4 mt-2">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 flex-grow italic mb-6 font-medium">"Bir hizmeti para için yapmakla severek yapmak arasındaki farkın vücut bulmuş hali. İşlerine kendilerini adamış insanlar. Tebrikler."</p>
+                            <div class="flex items-center gap-3 border-t pt-4">
+                                <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold">ÖT</div>
+                                <div>
+                                    <p class="font-bold text-primary">Özlem Temel</p>
+                                    <p class="text-xs text-gray-500">Google Yorumu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white text-gray-800 p-8 rounded-2xl shadow-xl flex flex-col h-full relative mt-6">
+                            <div class="absolute -top-6 left-8 bg-secondary text-white w-12 h-12 flex items-center justify-center rounded-full text-2xl shadow-lg">
+                                <i class="fa-solid fa-quote-left"></i>
+                            </div>
+                            <div class="flex text-yellow-400 text-sm mb-4 mt-2">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 flex-grow italic mb-6 font-medium">"Samimi ortam birebir ilgi eğlenceli ders ortamı ve başarı tesadüf değil Zeki hoca ve Baturalp hoca emekleri sonucu güven."</p>
+                            <div class="flex items-center gap-3 border-t pt-4">
+                                <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold">MA</div>
+                                <div>
+                                    <p class="font-bold text-primary">Merve Aydoğan</p>
+                                    <p class="text-xs text-gray-500">Google Yorumu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white text-gray-800 p-8 rounded-2xl shadow-xl flex flex-col h-full relative mt-6">
+                            <div class="absolute -top-6 left-8 bg-secondary text-white w-12 h-12 flex items-center justify-center rounded-full text-2xl shadow-lg">
+                                <i class="fa-solid fa-quote-left"></i>
+                            </div>
+                            <div class="flex text-yellow-400 text-sm mb-4 mt-2">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 flex-grow italic mb-6 font-medium">"3 yılımıza gireceğiz etüt merkezi ile ben çok memnunum çocuğumda hem eğitim hem de davranışsal olarak çok olumlu değişiklikler oldu."</p>
+                            <div class="flex items-center gap-3 border-t pt-4">
+                                <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold">AB</div>
+                                <div>
+                                    <p class="font-bold text-primary">Amazon Bhd</p>
+                                    <p class="text-xs text-gray-500">Google Yorumu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim, Harita ve Footer -->
+    <section id="iletisim" class="bg-gray-50 pt-20 border-t">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden" data-aos="fade-up">
+                <div class="flex flex-col lg:flex-row">
+                    
+                    <!-- Sol: İletişim Bilgileri -->
+                    <div class="bg-primary text-white p-10 lg:w-1/3 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6">İletişime Geçin</h3>
+                            <p class="text-blue-200 mb-8">Kayıt işlemleri, fiyatlar veya eğitim modelimiz hakkında detaylı bilgi almak için bize ulaşın.</p>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="mt-1 text-secondary text-xl"><i class="fa-solid fa-location-dot"></i></div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-blue-200 uppercase tracking-wider mb-1">Adres</h4>
+                                        <p class="font-medium text-[15px]">Etlik, Yayla mahallesi, Esertepe,<br> Şht. Mustafa Ercigez Cd 97/A,<br> 06654 Keçiören/Ankara</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="mt-1 text-secondary text-xl"><i class="fa-solid fa-phone"></i></div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-blue-200 uppercase tracking-wider mb-1">Telefon</h4>
+                                        <a href="tel:05539196024" class="font-bold text-lg hover:text-secondary transition">0553 919 60 24</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="mt-1 text-secondary text-xl"><i class="fa-solid fa-clock"></i></div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-blue-200 uppercase tracking-wider mb-1">Çalışma Saatleri</h4>
+                                        <p class="font-medium">Pazartesi - Pazar <br> 08:00 - 19:00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Orta: Form -->
+                    <div class="p-10 lg:w-1/3 flex items-center bg-white">
+                        <div class="w-full">
+                            <h3 class="text-2xl font-bold text-primary mb-6">Ön Kayıt Bilgi Formu</h3>
+                            <form id="contactForm" class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Adınız Soyadınız</label>
+                                    <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition" placeholder="Veli Adı">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Telefon Numaranız</label>
+                                    <input type="tel" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition" placeholder="0 (5XX) XXX XX XX">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Öğrencinin Sınıfı</label>
+                                    <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition bg-white">
+                                        <option value="" disabled selected>Seçiniz</option>
+                                        <option>İlkokul (1-4. Sınıf)</option>
+                                        <option>Ortaokul (5-7. Sınıf)</option>
+                                        <option>LGS (8. Sınıf)</option>
+                                        <option>Özel Ders</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="w-full bg-secondary text-white font-bold py-3 px-4 rounded-lg hover:opacity-90 transition shadow-md mt-2">
+                                    Sizi Arayalım
+                                </button>
+                                <p id="formMessage" class="hidden text-green-600 text-sm font-medium text-center mt-2">Talebiniz alındı, en kısa sürede dönüş yapacağız!</p>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Sağ: Harita -->
+                    <div class="lg:w-1/3 min-h-[300px] lg:min-h-full">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3056.9859344425627!2d32.833544!3d39.986421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34bc14fb1e6bb%3A0xe1db0b5b1a3c613!2sEtlik%20Kurs%20ve%20Et%C3%BCt%20Merkezi!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0; min-height: 100%;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alt Bilgi (Footer) -->
+        <footer class="bg-primary pt-10 pb-6 text-white border-t border-blue-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                <!-- Logo & Copyright -->
+                <div class="flex items-center gap-3">
+                    <img src="logo.jpg" alt="Etlik Eğitim Merkezi Logo" class="w-12 h-12 object-cover bg-white p-0.5 rounded-md">
+                    <div>
+                        <span class="font-bold text-lg leading-none block">ETLİK EĞİTİM MERKEZİ</span>
+                        <span class="text-xs text-blue-300">© 2024 Tüm Hakları Saklıdır.</span>
+                    </div>
+                </div>
+                
+                <!-- Sosyal Medya -->
+                <div class="flex gap-4">
+                    <a href="https://www.instagram.com/etlik_kurs_etut_merkezi/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-xl hover:bg-secondary transition-colors">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshare.google%2FEi11xquRiPkRHmMuB" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-xl hover:bg-secondary transition-colors">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+    <!-- Sticky WhatsApp Button -->
+    <a href="https://wa.me/905539196024" target="_blank" class="whatsapp-btn fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:bg-[#20b858] transition-colors">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- UNAL Partnerlik Demo Badge -->
+    <a href="https://unal-partnering.github.io/anasayfa" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 left-6 z-50 bg-slate-900/95 backdrop-blur-md border border-yellow-600/30 p-2.5 rounded-2xl shadow-2xl flex items-center gap-3 hover:-translate-y-1 transition-transform duration-300 cursor-pointer">
+        <img src="unal.jpg" alt="UNAL Partnerlik Logo" class="w-12 h-12 rounded-xl object-cover shadow-inner">
+        <div class="flex flex-col pr-2">
+            <span class="text-sm font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600 tracking-wider">UNAL PARTNERLİK</span>
+            <span class="text-[10px] text-gray-400 font-medium tracking-widest uppercase mt-0.5">Demo Websİtesİdİr</span>
+        </div>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    
+    <script>
+        // AOS Animasyon Başlatma
+        AOS.init({
+            once: true, // Animasyonlar scroll yaparken sadece 1 kez oynar
+            offset: 50,
+        });
+
+        // Swiper Slider Başlatma (Yorumlar)
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                640: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+            },
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+        });
+
+        // Navbar Scroll Efekti
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md', 'py-0');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // Mobil Menü Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Mobil menü linklerine tıklanınca menüyü kapat
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Form Gönderim Simülasyonu
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            const msg = document.getElementById('formMessage');
+            
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Gönderiliyor...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = 'Sizi Arayalım';
+                btn.disabled = false;
+                this.reset();
+                msg.classList.remove('hidden');
+                setTimeout(() => msg.classList.add('hidden'), 5000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
